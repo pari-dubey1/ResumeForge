@@ -27,7 +27,11 @@ A modern and interactive resume builder that allows users to create, customize, 
 ## 📸 Screenshots
 
 ![alt text](<Screenshot 2026-03-31 214505.png>) 
+
+## Sidebar
 ![alt text](<Screenshot 2026-03-31 214645.png>) 
+
+## Import/Export
 ![alt text](<Screenshot 2026-03-31 214702.png>)
 
 ---
