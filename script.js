@@ -274,6 +274,9 @@ function App() {
           ))}
         </div>
 
+        {/* SIDEBAR OVERLAY */}
+        <div className={`sidebar-overlay ${sidebarOpen ? 'open' : ''}`} onClick={() => setSidebarOpen(false)}></div>
+
         {/* PREVIEW */}
         <div className="preview-wrap" onClick={() => setSidebarOpen(false)}>
           <div className="resume-paper" style={{ transform: `scale(${zoom})`, transformOrigin: 'top center'}}>

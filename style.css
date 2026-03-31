@@ -42,6 +42,32 @@
   }
   .topbar-brand .dot { color: var(--gold); }
   .topbar-actions { display: flex; gap: 10px; }
+  @media (max-width: 768px) {
+    .topbar-actions {
+      gap: 6px;
+    }
+    .topbar-actions .btn {
+      padding: 6px 12px;
+      font-size: 0.7rem;
+    }
+  }
+  @media (max-width: 480px) {
+    .topbar-actions {
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .topbar-actions::-webkit-scrollbar {
+      display: none;
+    }
+    .topbar-actions .btn {
+      padding: 5px 10px;
+      font-size: 0.65rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+  }
   .menu-toggle {
     display: none;
   }
@@ -427,6 +453,15 @@
   .lang-toggle:hover { background:#222; }
 
   /* ── RESPONSIVE DESIGN ── */
+  @media (max-width: 1200px) {
+    :root {
+      --panel-w: 400px;
+    }
+    .resume-paper {
+      width: 190mm;
+    }
+  }
+
   @media (max-width: 1024px) {
     :root {
       --panel-w: 380px;
@@ -460,6 +495,22 @@
     .sidebar.open {
       transform: translateX(0);
     }
+    .sidebar-overlay {
+      position: fixed;
+      top: 54px;
+      left: 0;
+      width: 100vw;
+      height: calc(100vh - 54px);
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .sidebar.open + .sidebar-overlay {
+      opacity: 1;
+      visibility: visible;
+    }
     .preview-wrap {
       width: 100vw;
       padding: 20px 12px;
@@ -469,6 +520,14 @@
       min-height: auto;
       padding: 10mm 12mm;
       box-shadow: 0 4px 20px rgba(0,0,0,.15);
+      font-size: 14px;
+    }
+    .r-name {
+      font-size: 1.6rem;
+    }
+    .r-avatar {
+      width: 60px;
+      height: 60px;
     }
     .topbar {
       position: relative;
@@ -488,6 +547,13 @@
       left: 24px;
       bottom: 24px;
     }
+    .r-contacts {
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
+    .field-row {
+      grid-template-columns: 1fr;
+    }
   }
 
   @media (max-width: 480px) {
@@ -503,10 +569,26 @@
     }
     .resume-paper {
       padding: 8mm 10mm;
+      font-size: 12px;
+    }
+    .r-name {
+      font-size: 1.4rem;
+    }
+    .r-avatar {
+      width: 50px;
+      height: 50px;
+    }
+    .r-header {
+      gap: 12px;
     }
     .zoom-controls {
       bottom: 16px;
       right: 16px;
+    }
+    .zoom-btn {
+      width: 32px;
+      height: 32px;
+      font-size: 1rem;
     }
   }
 
@@ -541,16 +623,12 @@
     display:grid; grid-template-columns:auto 1fr auto auto;
     gap:6px; align-items:center; margin-bottom:6px;
   }
-  .contact-icon-sel {
-    font-size:1rem; cursor:pointer; padding:4px;
-    border-radius:6px; border:1.5px solid var(--mist); background:var(--cream);
-    transition:all .15s;
+  @media (max-width: 768px) {
+    .contact-row {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+    .contact-row input {
+      width: 100% !important;
+    }
   }
-  .contact-icon-sel:hover { border-color:var(--gold); }
-  .contact-icon-btn {
-    width:28px; height:28px; border-radius:6px; border:none;
-    background:transparent; cursor:pointer; font-size:.75rem; color:var(--slate);
-    display:flex; align-items:center; justify-content:center;
-    transition:all .15s;
-  }
-  .contact-icon-btn:hover { color:var(--rust); }
